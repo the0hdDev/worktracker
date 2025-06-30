@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeiterfassung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">⏱️ Zeiterfassung</h1>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#work" class="nav-link active" data-tab="work">Arbeitszeit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#review" class="nav-link" data-tab="review">Übersicht</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Work Tab -->
+        <div id="work-tab" class="tab-content active">
+            <div class="work-section">
+                <h2>Arbeitszeit erfassen</h2>
+                
+                <button id="workBtn" class="work-button">
+                    <div class="button-content">
+                        <div class="button-icon">▶️</div>
+                        <div class="button-text">ARBEIT STARTEN</div>
+                    </div>
+                </button>
+
+                <div class="current-stats">
+                    <div class="stat-card">
+                        <h3>Aktuelle Session</h3>
+                        <div id="sessionTime" class="stat-value">0h 0m</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Heute</h3>
+                        <div id="todayTime" class="stat-value">0h 0m</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Gesamt diese Woche</h3>
+                        <div id="weekTime" class="stat-value">0h 0m</div>
+                    </div>
+                </div>
+
+                <div class="status-indicator">
+                    <div id="statusDot" class="status-dot"></div>
+                    <span id="statusText">Bereit zum Arbeiten</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Tab -->
+        <div id="review-tab" class="tab-content">
+            <div class="review-section">
+                <h2>Arbeitszeit Übersicht</h2>
+                
+                <div class="summary-stats">
+                    <div class="summary-card">
+                        <h3>Gesamtzeit</h3>
+                        <div id="totalTime" class="summary-value">0h 0m</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Durchschnitt/Tag</h3>
+                        <div id="avgTime" class="summary-value">0h 0m</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Arbeitstage</h3>
+                        <div id="workDays" class="summary-value">0</div>
+                    </div>
+                </div>
+
+                <div class="table-controls">
+                    <h3>Tagesübersicht</h3>
+                    <button id="refreshBtn" class="refresh-btn">🔄 Aktualisieren</button>
+                </div>
+
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    Lade Daten...
+                </div>
+
+                <div class="table-container">
+                    <table id="timeTable" class="time-table">
+                        <thead>
+                            <tr>
+                                <th>📅 Datum</th>
+                                <th>⏰ Gesamtzeit</th>
+                                <th>📊 Stunden-Details</th>
+                                <th>🏁 Sessions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td colspan="4" class="no-data">Keine Daten verfügbar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
